@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('booking_trx_id');
-            $table->decimal('total_redeem_price', 10, 2);
+            $table->decimal('total_redeem_price', 10, 0);
             $table->enum('method', ['cash', 'transfer'])->default('cash');
             $table->string('bank_number')->nullable();  // Data bank user jika transfer
-            $table->decimal('tax', 10, 2);
-            $table->decimal( 'grand_redeem_total', 10, 2);
+            $table->decimal('tax', 10, 0);
+            $table->decimal( 'grand_redeem_total', 10, 0);
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();
         });

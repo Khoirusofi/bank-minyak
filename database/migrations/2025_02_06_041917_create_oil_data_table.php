@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('oil_data', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->decimal('total_saldo_price', 8, 2);
+            $table->decimal('total_saldo_price', 8, 0);
             $table->timestamps();
         });
     }

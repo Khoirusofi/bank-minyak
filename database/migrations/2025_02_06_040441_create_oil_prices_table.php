@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('oil_prices', function (Blueprint $table) {
             $table->id();
-            $table->decimal('price', 12, 2);
+            $table->decimal('price', 12, 0);
             $table->timestamps();
         });
     }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->decimal('total_liter', 8, 2);
-            $table->decimal('total_price', 10, 2);
-            $table->decimal('oil_price', 10, 2);
+            $table->decimal('total_liter', 8, 0);
+            $table->decimal('total_price', 10, 0);
+            $table->decimal('oil_price', 10, 0);
             $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
