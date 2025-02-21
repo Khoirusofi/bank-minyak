@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
+use Filament\Panel;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
-// class User extends Authenticatable implements MustVerifyEmail
+// class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -55,6 +57,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+     public function canAccessPanel(Panel $panel): bool
+     {
+         return true;
+     }
 
     public function deposit(): HasMany
     {
