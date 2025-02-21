@@ -56,7 +56,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'address' => ['required', 'string', 'min:3', 'max:255'],
-            'number' => ['required', 'numeric', 'min:3', 'string', 'max:15'],
+            'number' => ['required', 'numeric', 'digits_between:3,15'],
             'bank_name' => ['nullable', 'string', 'max:100'],
             'bank_number' => ['nullable', 'numeric', 'min:3', 'string', 'max:20'],
         ]);
